@@ -44,7 +44,7 @@ module.exports = {
     // VARIÁVEL PRA GUARDAR O COMANDO SQL
     const sql = `UPDATE tb_usuarios
                  SET nome = ?, email = ?, senha = ?, perfil = ?
-                 WHERE id_usuarios = ?`
+                 WHERE id_usuario = ?`
     // EXECUTA O SQL
     const [resultado] = await db.execute(sql, [nome, email, senha, perfil, id])
     // RETORNA PRO CONTROLLER O RESULTADO
