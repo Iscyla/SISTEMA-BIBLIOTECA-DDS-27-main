@@ -50,12 +50,14 @@ app.get("/login", (req, res) => {
 const usuarioRoutes = require("./routes/usuarioRoutes.js")
 app.use("/usuarios", usuarioRoutes)
 
+// IMPORTAR AS ROTAS DE LIVROS
+const livrosRoutes = require("./routes/livrosRoutes.js")
+app.use("/livros", livrosRoutes)
+
 // ROTAS PÚBLICAS
 app.get("/", (req, res) => {
     res.render('index')
 })
-
-
 
 // TRAZ AS CONFIGURAÇÕES DO BANCO
 const pool = require("./config/db.js");
