@@ -5,12 +5,12 @@
 <main class="container my-2 flex-grow-1">
 
     <h1 class="text-center">
-        ESTOU NA PÁGINA DE LISTAR OS LIVROS
+        ESTOU NA PÁGINA DE PET's
     </h1>
 
     <!-- BOTÃO PARA PÁGINA DE CADASTRO -->
-    <a href="/livros/cadastrar">
-        <button class="btn-solid theme-accent"> + Novo livro </button>
+    <a href="/pet/cadastrar">
+        <button class="btn-solid theme-accent"> + Pet </button>
     </a>
 
     <!-- TABELA COM OS DADOS DOS LIVROS -->
@@ -19,39 +19,29 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Título</th>
-                <th scope="col">Autor</th>
-                <th scope="col">Ano de publicação</th>
+                <th scope="col">Nome do Pet</th>
+                <th scope="col">Tutor</th>
                 <th scope="col">Gênero</th>
-                <th scope="col">Disponível</th>
-                <th scope="col">Ações</th>
             </tr>
         </thead>
 
         <tbody>
 
             <!-- LAÇO DE REPETIÇÃO PARA INTERAGIR COM A LISTA VINDO DO BACKEND -->
-            <% listaLivros.forEach(livro => { %>
+            <% listarPet.forEach( user => { %>
 
                 <tr>
 
-                    <td><%= livro.id_livro %></td>
-
-                    <td><%= livro.titulo %></td>
-
-                    <td><%= livro.autor %></td>
-
-                    <td><%= new Date(livro.ano_publicacao).toLocaleDateString('pt-BR') %></td>
-
+                    <td><%= pet.id_pet %></td>
+                    <td><%= pet.nome_pet %></td>
+                    <td><%= pet.tutor %></td>
                     <td><%= livro.genero %></td>
-
-                    <td><%= livro.esta_disponivel %></td>
 
                     <!-- BOTÕES DE AÇÕES -->
                     <td class="d-flex justify-content-center gap-3">
 
                         <!-- BOTÃO DE EDITAR -->
-                        <a href="/livros/editar/<%= livro.id_livro %>">
+                        <a href="/pet/editar/<%= user.id_pet %>">
                             <button class="btn-solid theme-warning">
                                 Editar
                             </button>
@@ -59,9 +49,9 @@
 
                         <!-- BOTÃO DE EXCLUIR -->
                         <form
-                            action="/livros/deletar/<%= livro.id_livro %>"
+                            action="/pet/deletar/<%= user.id_pet %>"
                             method="post"
-                            onsubmit="return confirm('Deseja realmente excluir esse livro?')"
+                            onsubmit="return confirm('Deseja realmente excluir esse pet?')"
                         >
                             <button type="submit" class="btn-solid theme-danger">
                                 Excluir

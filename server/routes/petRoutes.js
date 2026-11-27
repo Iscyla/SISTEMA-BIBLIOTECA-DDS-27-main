@@ -4,32 +4,30 @@ const express = require("express");
 const router = express.Router();
 
 // IMPORTAR O CONTROLLER DOS LIVROS
-const livrosControllers = require("../controllers/livrosControllers.js");
+const petControllers = require("../controllers/petControllers.js");
 
 // CRUD DE LIVROS
 
 // MOSTRA A PÁGINA DE CADASTRAR LIVROS
 router.get("/cadastrar", (req, res) => {
-    res.render("livros/cadastrar");
+    res.render("pet/cadastrar");
 });
 
 // MANDAR AS INFORMAÇÕES DE CADASTRO PARA O CONTROLLER
-router.post("/cadastrar", livrosControllers.criar);
+router.post("/cadastrar", petControllers.criar);
 
 // MOSTRA A PÁGINA DE EDITAR LIVROS
-router.get("/editar/:id", livrosControllers.renderizarEditar);
-
-// RECEBER AS INFORMAÇÕES EDITADAS
-router.post("/editar/:id", livrosControllers.editar);
+router.get("/editar/:id", petControllers.renderizarEditar);
+router.post("/editar/:id", petControllers.editar);
 
 // MOSTRA A PÁGINA DE LISTAR LIVROS
-router.get("/listar", livrosControllers.listar);
+router.get("/listar", petControllers.listar);
 
 // MOSTRA A LISTA DE LIVROS NA ROTA PRINCIPAL
-router.get("/", livrosControllers.listar);
+router.get("/", petControllers.listar);
 
 // ROTA PARA DELETAR UM LIVRO
-router.post("/deletar/:id", livrosControllers.deletar);
+router.post("/deletar/:id", petControllers.deletar);
 
 // EXPORTAR O ROUTER
 module.exports = router;

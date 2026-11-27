@@ -117,9 +117,7 @@ module.exports = {
 
       //   REDIRECIONA PARA A PÁGINA DE LISTA DE USUÁRIOS
       res.redirect("/usuarios");
-
-    } 
-    catch (erro) {
+    } catch (erro) {
       console.log(erro);
       res.render("erro", { erro, mensagem: "Erro ao editar o usuário" });
     }
