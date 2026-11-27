@@ -76,7 +76,7 @@ module.exports = {
 
       const { nome_pet, tutor, genero } = req.body;
 
-      await petModels.atualizarPet(nome_pet, tutor, genero);
+      await petModels.atualizarPet(idDaUrl, nome_pet, tutor, genero);
 
       res.redirect("/pet");
     } catch (erro) {
