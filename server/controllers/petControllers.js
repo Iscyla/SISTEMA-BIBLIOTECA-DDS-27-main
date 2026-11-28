@@ -6,17 +6,15 @@ module.exports = {
   // CREATE
   criar: async (req, res) => {
     try {
-      const { nome_pet, tutor, genero } = req.body;
+      const { nome, cpf, telefone, email, nome_pet, genero_pet} = req.body;
 
-      await petModels.criarPet(nome_pet, tutor, genero);
+      await petModels.criarPet(nome, cpf, telefone, email, nome_pet, genero_pet);
 
-      res.redirect("/pet");
+      res.redirect("/petTutor");
     } catch (erro) {
       console.log(erro);
       res.render("erro", {
-        erro,
-        mensagem: "Erro ao criar o pet",
-      });
+        erro, mensagem: "Erro ao criar o pet" });
     }
   },
 
@@ -25,7 +23,7 @@ module.exports = {
     try {
       const listarPet = await petModels.listarPet();
 
-      res.render("pet/listar", { listarPet });
+      res.render("petTutor/listar", { listarPet });
     } catch (erro) {
       console.log(erro);
       res.render("erro", {
@@ -42,7 +40,7 @@ module.exports = {
 
       await petModels.deletarPet(idDaUrl);
 
-      res.redirect("/pet");
+      res.redirect("/petTutor");
     } catch (erro) {
       console.log(erro);
       res.render("erro", {
@@ -59,7 +57,7 @@ module.exports = {
 
       const petEditado = await petModels.buscarPorId(idDaUrl);
 
-      res.render("pet/editar", { petEditado });
+      res.render("petTutor/editar", { petEditado });
     } catch (erro) {
       console.log(erro);
       res.render("erro", {
@@ -74,11 +72,11 @@ module.exports = {
     try {
       const idDaUrl = req.params.id;
 
-      const { nome_pet, tutor, genero } = req.body;
+      const { nome, cpf, telefone, email, nome_pet, genero_pet } = req.body;
 
-      await petModels.atualizarPet(idDaUrl, nome_pet, tutor, genero);
+      await petModels.atualizarPet(idDaUrl, nome, cpf, telefone, email, nome_pet, genero_pet);
 
-      res.redirect("/pet");
+      res.redirect("/petTutor");
     } catch (erro) {
       console.log(erro);
       res.render("erro", {

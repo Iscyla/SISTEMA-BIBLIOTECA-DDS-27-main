@@ -2,19 +2,21 @@ const db = require("../config/db.js");
 
 module.exports = {
   // CREATE
-  criarPet: async (nome_pet, tutor, genero) => {
-    const sql = `INSERT INTO tb_pet
-      (nome_pet, tutor, genero)
-      VALUES (?, ?, ?)`;
+  criarPet: async (nome, cpf, telefone, email, nome_pet, genero_pet) => {
+    const sql = `INSERT INTO tb_tutor (nome, cpf, telefone, email, nome_pet, genero_pet)
+      VALUES (?, ?, ?, ?, ?, ?)`;
 
-    const [resultado] = await db.execute(sql, [nome_pet, tutor, genero]);
+  console.log(nome, cpf, telefone, email, nome_pet, genero_pet);
+ 
+
+    const [resultado] = await db.execute(sql, [nome, cpf, telefone, email, nome_pet, genero_pet]);
 
     return resultado.insertId;
   },
 
   // READ
   listarPet: async () => {
-    const sql = `SELECT * FROM tb_pet`;
+    const sql = `SELECT * FROM tb_tutor`;
 
     const [linhas] = await db.execute(sql);
 
@@ -22,19 +24,19 @@ module.exports = {
   },
 
   // UPDATE
-  atualizarPet: async (nome_pet, tutor, genero) => {
-    const sql = `UPDATE tb_pet
-      SET nome_pet = ?, tutor = ?, genero = ?
-      WHERE id_livro = ?`;
+  atualizarPet: async (nome, cpf, telefone, email, nome_pet, genero_pet) => {
+    const sql = `UPDATE tb_tutor
+      SET nome, cpf, telefone, email, nome_pet, genero_pet
+      WHERE id_tutor = ?`;
 
-    const [resultado] = await db.execute(sql, [nome_pet, tutor, genero]);
+    const [resultado] = await db.execute(sql, [nome, cpf, telefone, email, nome_pet, genero_pet]);
 
     return resultado.affectedRows;
   },
 
   // DELETE
   deletarPet: async (id) => {
-    const sql = `DELETE FROM tb_pet WHERE id_pet = ?`;
+    const sql = `DELETE FROM tb_tutor WHERE id_tutor = ?`;
 
     const [resultado] = await db.execute(sql, [id]);
 
@@ -43,7 +45,7 @@ module.exports = {
 
   // BUSCAR POR ID
   buscarPorId: async (id) => {
-    const sql = `SELECT * FROM tb_pet WHERE id_pet = ?`;
+    const sql = `SELECT * FROM tb_tutor WHERE id_tutor = ?`;
 
     const [resultado] = await db.execute(sql, [id]);
 

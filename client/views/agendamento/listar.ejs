@@ -5,12 +5,12 @@
 <main class="container my-2 flex-grow-1">
 
     <h1 class="text-center">
-        ESTOU NA PÁGINA DE PET's
+        ESTOU NA PÁGINA CONSULTAS AGENDADAS
     </h1>
 
     <!-- BOTÃO PARA PÁGINA DE CADASTRO -->
-    <a href="/pet/cadastrar">
-        <button class="btn-solid theme-accent"> + Pet </button>
+    <a href="/agendamento/cadastrar">
+        <button class="btn-solid theme-accent"> + Cadastro </button>
     </a>
 
     <!-- TABELA COM OS DADOS DOS LIVROS -->
@@ -19,9 +19,8 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Nome do Pet</th>
+                <th scope="col">Data Agendamento</th>
                 <th scope="col">Tutor</th>
-                <th scope="col">Gênero</th>
             </tr>
         </thead>
 
@@ -32,16 +31,15 @@
 
                 <tr>
 
-                    <td><%= pet.id_pet %></td>
-                    <td><%= pet.nome_pet %></td>
-                    <td><%= pet.tutor %></td>
-                    <td><%= livro.genero %></td>
+                    <td><%= user.id_agendamento %></td>
+                    <td><%= user.dt_agendamento %></td>
+                    <td><%= user.id_tutor %></td>
 
                     <!-- BOTÕES DE AÇÕES -->
                     <td class="d-flex justify-content-center gap-3">
 
                         <!-- BOTÃO DE EDITAR -->
-                        <a href="/pet/editar/<%= user.id_pet %>">
+                        <a href="/agendamento/editar/<%= user.id_agendamento %>">
                             <button class="btn-solid theme-warning">
                                 Editar
                             </button>
@@ -49,9 +47,9 @@
 
                         <!-- BOTÃO DE EXCLUIR -->
                         <form
-                            action="/pet/deletar/<%= user.id_pet %>"
+                            action="/agendamento/deletar/<%= user.id_agendamento %>"
                             method="post"
-                            onsubmit="return confirm('Deseja realmente excluir esse pet?')"
+                            onsubmit="return confirm('Deseja realmente excluir esse cadastro?')"
                         >
                             <button type="submit" class="btn-solid theme-danger">
                                 Excluir

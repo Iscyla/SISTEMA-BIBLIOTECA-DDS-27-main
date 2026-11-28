@@ -2,49 +2,47 @@
 <%- include('../partials/header') %>
 
 <main class="container my-2 flex-grow-1">
-  <h1 class="fg-accent fs-6x1">ESTOU NA PÁGINA DE CADASTRAR PET</h1>
+  <h1 class="fg-accent fs-6x1">ESTOU NA PÁGINA DE CADASTRAR CONSULTA</h1>
 
   <!-- CRIAR O FORMULÁRIO DE CADASTRO -->
   <div class="d-flex flex-column">
     <!-- action - Fala a rota que o botão vai enviar as informações -->
-    <form action="/pet/cadastrar" method="post">
+    <form action="/agendamento/cadastrar" method="post">
       <!-- CAIXINHA DE TÍTULO -->
       <div class="form-group">
-        <label for="nome_pet">Nome:</label>
+        <label for="dt_agendamento">Data do agendamento:</label>
         <input
-          type="name"
-          name="nome"
-          id="nome"
+          type="date"
+          name="dt_agendamento"
+          id="dt_agendamento"
           class="form-control"
           required
         />
       </div>
 
-      <!-- CAIXINHA DE EMAIL -->
-      <div class="form-group">
-        <label for="tutor"> Tutor: </label>
+            <div class="form-group">
+        <label for="id_tutor">Código do Tutor:</label>
         <input
-          type="text"
-          name="tutor"
-          id="tutor"
-          class="form-control"
+          type="number"
+          name="id_tutor"
+          id="id_tutor"
+          class="form-id_tutor"
           required
         />
       </div>
 
-
-      <!-- CAIXINHA DE GENERO -->
+      <!-- CAIXINHA DE GENERO
       <div class="form-group">
-        <label for="genero"> Genêro: </label>
-        <select name="genero" id="genero" class="form-control">
+        <label for="genero_pet"> Gênero: </label>
+        <select name="genero_pet" id="genero_pet" class="form-control">
           <option value="femea">Fêmea</option>
-          <option value="Macho">Macho</option>
+          <option value="macho">Macho</option>
         </select>
-      </div>
+      </div> -->
 
       <!-- BOTÃO DE ENVIO -->
       <button type="submit" class="btn-subtle theme-success mt-3">
-        Cadastrar
+        Cadastrar agendamento
       </button>
     </form>
   </div>

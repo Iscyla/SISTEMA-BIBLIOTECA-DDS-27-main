@@ -52,7 +52,10 @@ app.use("/usuarios", usuarioRoutes)
 
 // IMPORTAR AS ROTAS DE LIVROS
 const petRoutes = require("./routes/petRoutes.js")
-app.use("/pet", petRoutes)
+app.use("/petTutor", petRoutes)
+
+const agendamentoRoutes = require("./routes/agendamentoRoutes.js")
+app.use("/agendamento", agendamentoRoutes)
 
 // ROTAS PÚBLICAS
 app.get("/", (req, res) => {

@@ -10,7 +10,7 @@ const petControllers = require("../controllers/petControllers.js");
 
 // MOSTRA A PÁGINA DE CADASTRAR LIVROS
 router.get("/cadastrar", (req, res) => {
-    res.render("pet/cadastrar");
+    res.render("petTutor/cadastrar");
 });
 
 // MANDAR AS INFORMAÇÕES DE CADASTRO PARA O CONTROLLER
